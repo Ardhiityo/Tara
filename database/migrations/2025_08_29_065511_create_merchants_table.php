@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->text('phone');
-            $table->text('biography');
+            $table->text('biography')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending', 'suspend'])->default('pending');
             $table->string('slug');
             $table->timestamps();

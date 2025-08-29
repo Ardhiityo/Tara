@@ -7,35 +7,39 @@
                     Back
                 </a>
             </div>
-            <h2 class="mt-12 mb-8 text-xl font-bold text-gray-900 dark:text-white">Update Merchant</h2>
+            <h2 class="mt-12 mb-8 text-xl font-bold text-gray-900 dark:text-white">Update Services</h2>
             <form action="#">
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Name
+                        <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Title
                         </label>
-                        <input type="text" name="name" id="name"
+                        <input type="text" title="title" id="title"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             value="Yani MUA" required">
                     </div>
                     <div class="w-full">
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                        <input type="email" name="email" id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="yani@gmail.com" required readonly>
+                        <label for="type"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
+                        <select id="type"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="type">
+                            <option selected value="">Choose a country</option>
+                            <option value="skill">Skill</option>
+                            <option value="product">Product</option>
+                        </select>
                     </div>
                     <div class="w-full">
-                        <label for="phone"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
-                        <input type="text" name="phone" id="phone"
+                        <label for="price"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
+                        <input type="number" name="price" id="price"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="089650557420" required>
+                            value="523000" required>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="description"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <textarea id="description" rows="8"
+                        <textarea id="description" rows="8" name="description"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US</textarea>
                     </div>
                 </div>

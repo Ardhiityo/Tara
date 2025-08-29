@@ -6,25 +6,29 @@
     </x-slot>
 
     @role('admin')
-        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                Total Merchant
-                <span>0</span>
+        <div class="flex gap-6">
+            <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
+                    <h3>Total Merchant</h3>
+                    <span>0</span>
+                </div>
             </div>
         </div>
     @endrole
 
     @role('merchant')
-        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                Total Services
-                <span>0</span>
+        <div class="flex gap-6">
+            <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
+                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
+                    <h3>Total Services</h3>
+                    <span>0</span>
+                </div>
             </div>
-        </div>
-        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                Status
-                <span>Active</span>
+            <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
+                <div class="p-6 flex flex-col gap-3 items-center justify-center py-[50px] text-gray-900">
+                    <h3>Status</h3>
+                    <span>Active</span>
+                </div>
             </div>
         </div>
     @endrole

@@ -83,11 +83,9 @@
             </thead>
             <tbody>
                 <tr class="border-b dark:border-gray-700">
-                    <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Apple
-                        iMac 27&#34;</th>
-                    <td class="px-4 py-3">PC</td>
-                    <td class="px-4 py-3">Apple</td>
+                    <td class="px-4 py-3">MUA Pesta</td>
+                    <td class="px-4 py-3">Skill</td>
+                    <td class="px-4 py-3">Here are many variations of passages</td>
                     <td class="px-4 py-3">$2999</td>
                     <td class="px-4 py-3 flex items-center justify-end">
                         <button id="apple-imac-27-dropdown-button" data-dropdown-toggle="apple-imac-27-dropdown"
@@ -104,11 +102,11 @@
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="apple-imac-27-dropdown-button">
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('service.show') }}"
                                         class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('service.edit') }}"
                                         class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                             </ul>

@@ -7,24 +7,32 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto flex gap-x-[40px] sm:px-6 lg:px-8">
-            <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                    Total Merchant
-                    <span>0</span>
+            @role('admin')
+                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                        Total Merchant
+                        <span>0</span>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                    Status
-                    <span>Active</span>
+            @endrole
+            @role('merchant')
+                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                        Status
+                        <span>Active</span>
+                    </div>
                 </div>
-            </div>
+            @endrole
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto flex flex-col gap-[40px] sm:px-6 lg:px-8">
-        <x-service />
-        <x-merchant />
+        @role('merchant')
+            <x-service />
+        @endrole
+        @role('admin')
+            <x-merchant />
+        @endrole
     </div>
 
 </x-app-layout>

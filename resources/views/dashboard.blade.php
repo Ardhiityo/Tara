@@ -5,40 +5,34 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto flex gap-x-[40px] sm:px-6 lg:px-8">
-            @role('admin')
-                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                        Total Merchant
-                        <span>0</span>
-                    </div>
-                </div>
-            @endrole
-            @role('merchant')
-                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                        Total Services
-                        <span>0</span>
-                    </div>
-                </div>
-                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
-                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
-                        Status
-                        <span>Active</span>
-                    </div>
-                </div>
-            @endrole
+    @role('admin')
+        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                Total Merchant
+                <span>0</span>
+            </div>
         </div>
-    </div>
+    @endrole
 
-    <div class="max-w-7xl mx-auto flex flex-col gap-[40px] sm:px-6 lg:px-8">
-        @role('merchant')
-            <x-service />
-        @endrole
-        @role('admin')
-            <x-merchant />
-        @endrole
-    </div>
+    @role('merchant')
+        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                Total Services
+                <span>0</span>
+            </div>
+        </div>
+        <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+            <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                Status
+                <span>Active</span>
+            </div>
+        </div>
+    @endrole
 
+    @role('merchant')
+        <x-service />
+    @endrole
+    @role('admin')
+        <x-merchant />
+    @endrole
 </x-app-layout>

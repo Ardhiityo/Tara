@@ -30,8 +30,10 @@
         @endisset
 
         <!-- Page Content -->
-        <main class="pb-12">
-            {{ $slot }}
+        <main class="py-12">
+            <div class="max-w-7xl mx-auto flex flex-col gap-[40px] sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>

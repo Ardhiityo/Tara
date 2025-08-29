@@ -6,7 +6,7 @@
     </x-slot>
 
     @role('admin')
-        <div class="flex gap-6">
+        <div class="flex gap-6 flex-wrap justify-center">
             <div class="bg-white w-sm shadow-xs sm:rounded-lg">
                 <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
                     <span class="font-bold">
@@ -20,8 +20,8 @@
     @endrole
 
     @role('merchant')
-        <div class="flex gap-6">
-            <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
+        <div class="flex flex-wrap gap-6 justify-center">
+            <div class="bg-white flex-col w-sm shadow-xs rounded-lg">
                 <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
                     <span class="font-bold">
                         <i class="fa-solid fa-list mr-1"></i>
@@ -30,7 +30,7 @@
                     <span class="text-2xl">0</span>
                 </div>
             </div>
-            <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
+            <div class="bg-white flex-col w-sm shadow-xs rounded-lg">
                 <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
                     <span class="font-bold">
                         <i class="fa-solid fa-circle-info mr-1"></i>

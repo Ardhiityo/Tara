@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('merchants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
-            $table->text('phone');
+            $table->text('phone')->nullable();
             $table->text('biography')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending', 'suspend'])->default('pending');
             $table->string('slug');

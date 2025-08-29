@@ -14,6 +14,11 @@
             </div>
             <div class="p-4 sm:p-8 bg-white shadow-sm sm:rounded-lg">
                 <div class="max-w-xl">
+                    @include('profile.partials.update-profile-phone-form')
+                </div>
+            </div>
+            <div class="p-4 sm:p-8 bg-white shadow-sm sm:rounded-lg">
+                <div class="max-w-xl">
                     @include('profile.partials.update-profile-biography-form')
                 </div>
             </div>

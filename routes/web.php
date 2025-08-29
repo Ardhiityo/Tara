@@ -16,7 +16,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::view('/merchants/create', 'pages.merchant.create')->name('merchant.create');
     Route::view('/merchants/1', 'pages.merchant.show')->name('merchant.show');
     Route::view('/merchants/1/edit', 'pages.merchant.edit')->name('merchant.edit');
     Route::view('/services/create', 'pages.service.create')->name('service.create');

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Product extends Component
+class Service extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class Product extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product');
+        return view('components.service');
     }
 }

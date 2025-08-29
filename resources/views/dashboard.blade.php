@@ -23,7 +23,7 @@
     </div>
 
     <div class="max-w-7xl mx-auto flex gap-x-[40px] sm:px-6 lg:px-8">
-        <x-product />
+        <x-service />
     </div>
 
 </x-app-layout>

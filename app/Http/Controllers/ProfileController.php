@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileBiographyRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,6 +36,13 @@ class ProfileController extends Controller
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    public function updateBiography(ProfileBiographyRequest $request)
+    {
+        $request->user()->merchant()->update($request->validated());
+
+        return Redirect::route('profile.edit')->with('status', 'biography-updated');
     }
 
     /**

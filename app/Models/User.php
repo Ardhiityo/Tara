@@ -48,7 +48,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function merchants(): HasOne
+    public function merchant(): HasOne
     {
         return $this->hasOne(Merchant::class);
     }

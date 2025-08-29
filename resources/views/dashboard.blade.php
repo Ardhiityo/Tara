@@ -18,6 +18,12 @@
             @role('merchant')
                 <div class="bg-white w-sm shadow-xs sm:rounded-lg">
                     <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
+                        Total Services
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+                    <div class="p-6 flex flex-col gap-4 items-center justify-center py-[60px] text-gray-900">
                         Status
                         <span>Active</span>
                     </div>

@@ -22,8 +22,9 @@
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto flex gap-x-[40px] sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col gap-[40px] sm:px-6 lg:px-8">
         <x-service />
+        <x-merchant />
     </div>
 
 </x-app-layout>

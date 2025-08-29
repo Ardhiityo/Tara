@@ -9,8 +9,11 @@
         <div class="flex gap-6">
             <div class="bg-white w-sm shadow-xs sm:rounded-lg">
                 <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
-                    <h3>Total Merchant</h3>
-                    <span>0</span>
+                    <span class="font-bold">
+                        <i class="fa-solid fa-shop mr-1"></i>
+                        Total Merchant
+                    </span>
+                    <span class="text-2xl">0</span>
                 </div>
             </div>
         </div>
@@ -20,14 +23,20 @@
         <div class="flex gap-6">
             <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
                 <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
-                    <h3>Total Services</h3>
-                    <span>0</span>
+                    <span class="font-bold">
+                        <i class="fa-solid fa-list mr-1"></i>
+                        Total Services
+                    </span>
+                    <span class="text-2xl">0</span>
                 </div>
             </div>
             <div class="bg-white flex-col w-sm shadow-xs sm:rounded-lg">
-                <div class="p-6 flex flex-col gap-3 items-center justify-center py-[50px] text-gray-900">
-                    <h3>Status</h3>
-                    <span>Active</span>
+                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
+                    <span class="font-bold">
+                        <i class="fa-solid fa-circle-info mr-1"></i>
+                        Status
+                    </span>
+                    <span class="text-xl">Active</span>
                 </div>
             </div>
         </div>

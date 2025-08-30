@@ -13,7 +13,7 @@
                         <i class="fa-solid fa-shop mr-1"></i>
                         Total Merchant
                     </span>
-                    <span class="text-2xl">0</span>
+                    <span class="text-2xl">{{ $merchants->total() }}</span>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <i class="fa-solid fa-list mr-1"></i>
                         Total Services
                     </span>
-                    <span class="text-2xl">0</span>
+                    <span class="text-2xl">{{ $services->total() }}</span>
                 </div>
             </div>
             <div class="bg-white flex-col w-sm shadow-xs rounded-lg">
@@ -36,16 +36,16 @@
                         <i class="fa-solid fa-circle-info mr-1"></i>
                         Status
                     </span>
-                    <span class="text-xl">Active</span>
+                    <span class="text-xl">{{ $merchant_status }}</span>
                 </div>
             </div>
         </div>
     @endrole
 
     @role('merchant')
-        <x-service />
+        <x-service :services="$services" />
     @endrole
     @role('admin')
-        <x-merchant />
+        <x-merchant :merchants="$merchants" />
     @endrole
 </x-app-layout>

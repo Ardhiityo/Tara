@@ -1,26 +1,29 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\MerchantController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-})->name('main');
-
-Route::get('/items/1', function () {
-    return view('show');
-})->name('item.show');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [MainController::class, 'index'])->name('main');
+Route::get('/items/{service:slug}', [MainController::class, 'show'])->name('main.show');
 
 Route::middleware('auth')->group(function () {
-    Route::view('/merchants/1', 'pages.merchant.show')->name('merchant.show');
-    Route::view('/merchants/1/edit', 'pages.merchant.edit')->name('merchant.edit');
-    Route::view('/services/create', 'pages.service.create')->name('service.create');
-    Route::view('/services/1', 'pages.service.show')->name('service.show');
-    Route::view('/services/1/edit', 'pages.service.edit')->name('service.edit');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/merchants/{merchant:slug}/edit', [MerchantController::class, 'edit'])->name('merchant.edit');
+    Route::patch('/merchants/{merchant:slug}', [MerchantController::class, 'update'])->name('merchant.update');
+    Route::get('/merchants/{merchant:slug}', [MerchantController::class, 'show'])->name('merchant.show');
+
+    Route::get('/services/create', [ServiceController::class, 'create'])->name('service.create');
+    Route::post('/services', [ServiceController::class, 'store'])->name('service.store');
+    Route::get('/services/{service:slug}', [ServiceController::class, 'show'])->name('service.show');
+    Route::get('/services/{service:slug}/edit', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::patch('/services/{service:slug}', [ServiceController::class, 'update'])->name('service.update');
+    Route::delete('/services/{service:slug}', [ServiceController::class, 'destroy'])->name('service.destroy');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/profile/biography', [ProfileController::class, 'updateBiography'])->name('profile.biography.update');

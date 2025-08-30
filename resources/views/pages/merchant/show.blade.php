@@ -14,12 +14,10 @@
                         Back
                     </a>
                 </div>
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Yani MUA</h2>
-                <p class="mb-8 font-light text-gray-500 sm:text-xl dark:text-gray-400">Flowbite helps you connect
-                    with
-                    friends, family and communities of people who share your interests. Connecting with your friends
-                    and
-                    family as well as discovering new ones is easy with features like Groups, Watch and Marketplace.
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+                    {{ $merchant->user->name }}</h2>
+                <p class="mb-8 font-light text-gray-500 sm:text-xl dark:text-gray-400">
+                    {{ $merchant->biography }}
                 </p>
             </div>
         </div>

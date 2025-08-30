@@ -8,7 +8,9 @@
                 </a>
             </div>
             <h2 class="mt-12 mb-8 text-xl font-bold text-gray-900 dark:text-white">Update Merchant</h2>
-            <form action="#">
+            <form action="{{ route('merchant.update', ['merchant' => $merchant->slug]) }}" method="POST">
+                @csrf
+                @method('PATCH')
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -16,7 +18,7 @@
                         </label>
                         <input type="text" name="name" id="name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="Yani MUA" required">
+                            value="{{ $merchant->user->name }}" required>
                     </div>
                     <div class="w-full">
                         <label for="status"
@@ -25,10 +27,19 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="status">
                             <option selected value="">Choose a country</option>
-                            <option value="active">Active</option>
-                            <option value="inactive">Inactive</option>
-                            <option value="suspend">Suspend</option>
-                            <option value="pending">Pending</option>
+                            <option value="active"
+                                {{ old('status', $merchant->status === 'active' ? 'selected' : '') }}>
+                                Active
+                            </option>
+                            <option value="inactive"
+                                {{ old('status', $merchant->status === 'inactive' ? 'selected' : '') }}>Inactive
+                            </option>
+                            <option value="suspend"
+                                {{ old('status', $merchant->status === 'suspend' ? 'selected' : '') }}>Suspend
+                            </option>
+                            <option value="pending"
+                                {{ old('status', $merchant->status === 'pending' ? 'selected' : '') }}>Pending
+                            </option>
                         </select>
                     </div>
                     <div class="w-full">
@@ -36,13 +47,14 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
                         <input type="text" name="phone" id="phone"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            value="089650557420" required>
+                            value="{{ $merchant->phone }}" required>
                     </div>
                     <div class="sm:col-span-2">
-                        <label for="description"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                        <textarea id="description" rows="8"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">Standard glass, 3.8GHz 8-core 10th-generation Intel Core i7 processor, Turbo Boost up to 5.0GHz, 16GB 2666MHz DDR4 memory, Radeon Pro 5500 XT with 8GB of GDDR6 memory, 256GB SSD storage, Gigabit Ethernet, Magic Mouse 2, Magic Keyboard - US</textarea>
+                        <label for="biography"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Biography</label>
+                        <textarea id="biography" rows="8" name="biography"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ $merchant->biography }}
+                        </textarea>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">

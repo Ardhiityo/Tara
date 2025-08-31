@@ -4,7 +4,7 @@
 
             <div class="flex items-center space-x-4">
                 <div class="shrink-0">
-                    <a href="#" title="" class="">
+                    <a href="{{ route('main') }}">
                         <i class="fa-solid fa-bag-shopping fa-2x"></i>
                     </a>
                 </div>
@@ -30,24 +30,28 @@
                     </button>
 
                     <div id="userDropdown1"
-                        class="hidden z-10 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow dark:divide-gray-600 dark:bg-gray-700">
-                        <ul class="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
+                        class="hidden w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg bg-white antialiased shadow z-10 dark:divide-gray-600 dark:bg-gray-700 text-center">
+                        <ul class="p-2 text-center text-sm font-medium text-gray-900 dark:text-white">
                             <li>
-                                <a href="#" title=""
+                                <a href="{{ route('dashboard') }}"
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    My Account </a>
+                                    Dashboard </a>
                             </li>
                             <li>
-                                <a href="#" title=""
+                                <a href="{{ route('profile.edit') }}"
                                     class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                                     Settings </a>
                             </li>
                         </ul>
 
                         <div class="p-2 text-sm font-medium text-gray-900 dark:text-white">
-                            <a href="#" title=""
-                                class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
-                                Sign Out </a>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button
+                                    class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-600">
+                                    Sign Out
+                                </button>
+                            </form>
                         </div>
                     </div>
                 @endauth

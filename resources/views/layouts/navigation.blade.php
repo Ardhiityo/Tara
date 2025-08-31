@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('main') }}">
                         <i class="fa-solid fa-bag-shopping fa-2xl"></i>
                     </a>
                 </div>

@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Merchant;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $services = Service::whereHas('merchant', function ($query) {
             $query->where('status', 'active');
         })->paginate(5);
+
+        if ($keyword = $request->query('keyword')) {
+            $services = Service::whereHas('merchant', function ($query) {
+                $query->where('status', 'active');
+            })->whereLike('title', "%$keyword%")->paginate(5);
+        }
 
         return view('index', compact('services'));
     }

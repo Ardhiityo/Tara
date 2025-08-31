@@ -4,8 +4,8 @@
 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden p-8 w-full">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div class="w-full md:w-1/2">
-            <form class="flex items-center">
-                <label for="simple-search" class="sr-only">Search</label>
+            <form class="flex items-center" method="GET" action="{{ route('dashboard') }}">
+                <label for="keyword" class="sr-only">Search</label>
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
@@ -15,12 +15,14 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <input type="text" id="simple-search"
+                    <input type="text" id="keyword"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search" required="">
+                        placeholder="Search" name="keyword">
                 </div>
-                <button type="button"
-                    class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Search</button>
+                <button type="submit"
+                    class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Search
+                </button>
             </form>
         </div>
         <div

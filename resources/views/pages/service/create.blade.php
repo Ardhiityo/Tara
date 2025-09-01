@@ -10,6 +10,18 @@
             <h2 class="mt-12 mb-8 text-xl font-bold text-gray-900 dark:text-white">Add Service</h2>
             <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @if ($errors->any())
+                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                        role="alert">
+                        <ul class="px-4">
+                            @foreach ($errors->all() as $error)
+                                <li class="list-disc">
+                                    <span class="font-medium">{{ $error }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

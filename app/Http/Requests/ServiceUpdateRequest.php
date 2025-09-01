@@ -22,7 +22,7 @@ class ServiceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3'],
+            'title' => ['required', 'min:3', 'unique:services,title ' . request()->route('service')->id],
             'type' => ['required', 'in:skill,product'],
             'price' => ['required', 'numeric', 'min:1'],
             'photo' => ['nullable', 'image', 'max:500'],

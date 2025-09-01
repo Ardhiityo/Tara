@@ -29,6 +29,7 @@ class DashboardController extends Controller
                     $query->whereLike('name', "%$keyword%");
                 })->paginate(5);
         }
+
         return view('dashboard', compact('merchants'));
     }
 }

@@ -105,9 +105,16 @@
                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                     </li>
                                 </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                                <div class="py-1 flex justify-center">
+                                    <form action="{{ route('merchant.destroy', ['merchant' => $merchant->slug]) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button
+                                            class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </td>

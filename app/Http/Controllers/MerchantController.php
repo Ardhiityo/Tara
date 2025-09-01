@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\MerchantUpdateRequest;
 use App\Models\Merchant;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\MerchantUpdateRequest;
 
 class MerchantController extends Controller
 {
@@ -33,5 +34,18 @@ class MerchantController extends Controller
     {
         $merchant->load('user');
         return view('pages.merchant.show', compact('merchant'));
+    }
+
+    public function destroy(Merchant $merchant)
+    {
+        $merchant->load('services');
+
+        foreach ($merchant->services as $service) {
+            Storage::disk('public')->delete($service->photo);
+        }
+
+        $merchant->user()->delete();
+
+        return redirect()->route('dashboard');
     }
 }

@@ -53,11 +53,12 @@
                 </tr>
             </thead>
             <tbody>
+
                 @foreach ($services as $service)
                     <tr class="border-b dark:border-gray-700">
                         <td class="px-4 py-3">{{ $service->title }}</td>
                         <td class="px-4 py-3">{{ $service->type }}</td>
-                        <td class="px-4 py-3">{{ $service->description }}</td>
+                        <td class="px-4 py-3">{{ Str::limit($service->description, 20, '...') }}</td>
                         <td class="px-4 py-3">{{ Number::currency($service->price) }}</td>
                         <td class="px-4 py-3 flex items-center justify-end">
                             <button id="{{ $service->slug }}-dropdown-button"
@@ -98,11 +99,14 @@
                         </td>
                     </tr>
                 @endforeach
+
             </tbody>
         </table>
     </div>
     <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
         aria-label="Table navigation">
+        {{-- Pagination Start --}}
         {{ $services->links() }}
+        {{-- Pagination End --}}
     </nav>
 </div>

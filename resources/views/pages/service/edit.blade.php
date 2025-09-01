@@ -8,6 +8,7 @@
                 </a>
             </div>
             <h2 class="mt-12 mb-8 text-xl font-bold text-gray-900 dark:text-white">Update Service</h2>
+
             <form action="{{ route('service.update', ['service' => $service->slug]) }}" enctype="multipart/form-data"
                 method="POST">
                 @method('PATCH')
@@ -76,6 +77,7 @@
                     </button>
                 </div>
             </form>
+
         </div>
     </section>
 </x-app-layout>

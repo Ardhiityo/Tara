@@ -24,8 +24,7 @@ class MainController extends Controller
 
     public function show(Service $service)
     {
-        $service->load('merchant.user');
-
-        return view('show', compact('service'));
+         $service->load('merchant.user');
+         return view('show', compact('service'));
     }
 }

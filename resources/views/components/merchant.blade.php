@@ -24,40 +24,19 @@
                     Search
                 </button>
             </form>
+
         </div>
         <div
             class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-            <div class="flex items-center space-x-3 w-full md:w-auto">
-                <div id="filterDropdown" class="z-10 hidden w-48 p-3 bg-white rounded-lg shadow dark:bg-gray-700">
-                    <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">Choose brand</h6>
-                    <ul class="space-y-2 text-sm" aria-labelledby="filterDropdownButton">
-                        <li class="flex items-center">
-                            <input id="active" type="checkbox" value=""
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="active"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Active</label>
-                        </li>
-                        <li class="flex items-center">
-                            <input id="inactive" type="checkbox" value=""
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="inactive"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Inactive</label>
-                        </li>
-                        <li class="flex items-center">
-                            <input id="pending" type="checkbox" value=""
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="pending"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Pending</label>
-                        </li>
-                        <li class="flex items-center">
-                            <input id="suspend" type="checkbox" value=""
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                            <label for="suspend"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">Suspend</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <a href="{{ route('category.create') }}"
+                class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true">
+                    <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                </svg>
+                Add category
+            </a>
         </div>
     </div>
     <div class="overflow-x-auto">
@@ -65,6 +44,7 @@
             <h3 class="my-3 text-xl">Merchants</h3>
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
+                    <th scope="col" class="px-4 py-3">No</th>
                     <th scope="col" class="px-4 py-3">Name</th>
                     <th scope="col" class="px-4 py-3">Email</th>
                     <th scope="col" class="px-4 py-3">Phone</th>
@@ -77,6 +57,7 @@
             <tbody>
                 @foreach ($merchants as $merchant)
                     <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3">{{ $loop->index + $merchants->firstItem() }}</td>
                         <td class="px-4 py-3">{{ $merchant->user->name }}</td>
                         <td class="px-4 py-3">{{ $merchant->user->name }}</td>
                         <td class="px-4 py-3">{{ $merchant->phone }}</td>

@@ -9,9 +9,15 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::paginate(10);
+        $keyword = $request->query('keyword');
+
+        if($keyword) {
+           $categories = Category::whereLike('name', "%$keyword%")->paginate();
+        } else {
+           $categories = Category::paginate();
+        }
 
         return view('pages.category.index', compact('categories'));
     }

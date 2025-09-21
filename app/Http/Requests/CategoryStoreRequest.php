@@ -34,4 +34,10 @@ class CategoryStoreRequest extends FormRequest
             'slug' => ['required', 'unique:categories,slug']
         ];
     }
+
+    public function messages() {
+        return [
+            'slug.unique' => 'The category has already been taken.'
+        ];
+    }
 }

@@ -1,14 +1,13 @@
 <nav class="bg-white dark:bg-gray-800 antialiased sticky top-0">
-    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4">
+    <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0 md:py-4">
         <div class="flex items-center justify-between">
-
             <div class="flex items-center space-x-4">
                 <div class="shrink-0">
                     <a href="{{ route('main') }}">
-                        <i class="fa-solid fa-bag-shopping fa-2x"></i>
+                        <i class="fa-solid fa-bag-shopping fa-2xl"></i>
                     </a>
                 </div>
-                <h1 class="text-xl">Talenta Juara</h1>
+                <h1 class="md:text-xl text-nowrap sm:text-md">Talenta Juara</h1>
             </div>
 
             <div class="flex items-center lg:space-x-2">
@@ -57,7 +56,7 @@
                 @endauth
 
                 @guest
-                    <div class="flex gap-1">
+                    <div class="flex gap-1 md:visible invisible">
                         <a href="{{ route('login') }}"
                             class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Sign
                             In</a>
@@ -83,25 +82,13 @@
         </div>
 
         <div id="ecommerce-navbar-menu-1"
-            class="bg-gray-50 dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg py-3 hidden px-4 mt-4">
-            <ul class="text-gray-900 dark:text-white text-sm font-medium dark:text-white space-y-3">
+            class="bg-gray-50 dark:bg-gray-700 dark:border-gray-600 border border-gray-200 rounded-lg p-4 hidden mt-4">
+            <ul class="text-gray-900 dark:text-white text-sm font-medium space-y-3">
                 <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Home</a>
+                    <a href="{{ route('login') }}" class="hover:text-primary-700 dark:hover:text-primary-500">Sign In</a>
                 </li>
                 <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Best Sellers</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Gift Ideas</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Games</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Electronics</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:text-primary-700 dark:hover:text-primary-500">Home & Garden</a>
+                    <a href="{{ route('register') }}" class="hover:text-primary-700 dark:hover:text-primary-500">Sign Up</a>
                 </li>
             </ul>
         </div>

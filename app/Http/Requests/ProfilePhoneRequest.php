@@ -22,7 +22,7 @@ class ProfilePhoneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'phone' => ['required']
+            'phone' => ['required', 'starts_with:62', 'min:8', 'max:15']
         ];
     }
 }

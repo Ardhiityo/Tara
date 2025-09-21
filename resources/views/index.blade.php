@@ -12,14 +12,24 @@
                 </div>
                 <div class="w-full md:w-1/2">
                     <form class="flex items-center justify-end" method="GET" action="{{ route('main') }}">
-                        <label for="keyword" class="sr-only">Search</label>
-                        <div class="w-1/2">
+                        <div class="mr-3 w-full justify-end flex gap-2">
                             <input type="text" id="keyword"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 w-full text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search" name="keyword">
+                                class="bg-gray-50 border border-gray-300 text-gray-900 w-1/2 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Search..." name="keyword">
+                            <select id="countries"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 w-1/3 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="category">
+                                <option selected value="">Category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->slug }}"
+                                        {{ old('category', $category->slug) === request('category') ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit"
-                            class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             Search
                         </button>
                         <a href="{{ route('main') }}"
@@ -41,12 +51,14 @@
                             <div class="pt-6">
                                 <span
                                     class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">{{ $service->title }}</span>
-                                <ul class="mt-2 flex items-center gap-4">
-                                    <li class="flex items-center gap-2">
+                                <ul class="mt-2 flex items-center">
+                                    <li class="flex items-center">
+                                        <a href="{{ route('main', ['category' => $service->category->slug]) }}" class="flex gap-2 items-center hover:underline">
                                         <i class="fa-solid fa-tags"></i>
-                                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            {{ $service->category->name }}
-                                        </p>
+                                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                                                {{ $service->category->name }}
+                                            </p>
+                                        </a>
                                     </li>
                                 </ul>
                                 <div class="mt-4 flex items-center justify-between gap-4">

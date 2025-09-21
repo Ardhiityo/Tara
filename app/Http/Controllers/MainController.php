@@ -3,23 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function index(Request $request)
     {
-        $services = Service::with('category', 'merchant')->whereHas('merchant', function ($query) {
-            $query->where('status', 'active');
-        })->paginate(5);
+        $keyword = $request->query('keyword');
+        $category = $request->query('category');
 
-        if ($keyword = $request->query('keyword')) {
-            $services = Service::with('category', 'merchant')->whereHas('merchant', function ($query) {
-                $query->where('status', 'active');
-            })->whereLike('title', "%$keyword%")->paginate(5);
+        if ($keyword || $category) {
+            $services = Service::with('category', 'merchant')
+            ->whereHas('merchant', fn ($query) => $query->where('status', 'active'))
+            ->whereHas('category',fn($query) => $query->where('slug', $category))
+            ->whereLike('title', "%$keyword%")
+            ->paginate(5);
+        } else {
+            $services = Service::with('category', 'merchant')
+            ->whereHas('merchant', fn ($query) => $query->where('status', 'active'))->paginate(5);
         }
 
-        return view('index', compact('services'));
+        $categories = Category::get();
+
+        return view('index', compact('services', 'categories'));
     }
 
     public function show(Service $service)

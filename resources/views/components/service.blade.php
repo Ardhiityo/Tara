@@ -1,7 +1,7 @@
 @props(['services' => []])
 
 <!-- Start coding here -->
-<div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden p-8 w-full">
+<div class="bg-white dark:bg-gray-800 relative shadow-md rounded-lg overflow-hidden p-8 w-full">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
         <div class="w-full md:w-1/2">
             <form class="flex items-center" method="GET" action="{{ route('dashboard') }}">
@@ -23,6 +23,10 @@
                     class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Search
                 </button>
+                <a href="{{ route('dashboard') }}"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </a>
             </form>
         </div>
         <div
@@ -43,6 +47,7 @@
             <h3 class="my-3 text-xl">Services</h3>
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
+                    <th scope="col" class="px-4 py-3">No</th>
                     <th scope="col" class="px-4 py-3">Title</th>
                     <th scope="col" class="px-4 py-3">Category</th>
                     <th scope="col" class="px-4 py-3">Description</th>
@@ -53,9 +58,9 @@
                 </tr>
             </thead>
             <tbody>
-
                 @foreach ($services as $service)
                     <tr class="border-b dark:border-gray-700">
+                        <td class="px-4 py-3">{{ $services->firstItem() + $loop->index }}</td>
                         <td class="px-4 py-3">{{ $service->title }}</td>
                         <td class="px-4 py-3">{{ $service->category->name }}</td>
                         <td class="px-4 py-3">{{ Str::limit($service->description, 20, '...') }}</td>
@@ -99,14 +104,11 @@
                         </td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>
     <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
         aria-label="Table navigation">
-        {{-- Pagination Start --}}
         {{ $services->links() }}
-        {{-- Pagination End --}}
     </nav>
 </div>

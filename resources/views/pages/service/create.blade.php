@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 rounded-lg">
         <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
             <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 mb-8">
                 <a href="{{ route('dashboard') }}"
@@ -11,64 +11,67 @@
             <form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if ($errors->any())
-                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                        role="alert">
-                        <ul class="px-4">
-                            @foreach ($errors->all() as $error)
-                                <li class="list-disc">
-                                    <span class="font-medium">{{ $error }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert">
+                    <ul class="px-4">
+                        @foreach ($errors->all() as $error)
+                        <li class="list-disc">
+                            <span class="font-medium">{{ $error }}</span>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
                 <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
                     <div class="sm:col-span-2">
                         <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Title
                         </label>
-                        <input type="text" title="title" id="title" name="title"
+                        <input type="text" title="title" id="title" name="title" value="{{ old('title') }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" " required>
                     </div>
-                    <div class="w-full">
-                        <label for="category_id"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                    <div class=" w-full">
+                        <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Category
+                        </label>
                         <select id="category_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="category_id">
                             <option selected value="">
                                 Choose a type
                             </option>
-                                   @foreach ($categories as $category)
-                        <option selected value="{{ $category->id }}">
-                            {{ $category->name }}
-                        </option>
-                        @endforeach
+                            @foreach ($categories as $category)
+                            <option selected value="{{ $category->id }}" {{ old('category_id') === $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                            @endforeach
                         </select>
+
                     </div>
                     <div class="w-full">
                         <label for="price"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                        <input type="number" name="price" id="price"
+                        <input type="number" name="price" id="price" value="{{ old('price') }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
 
                     <div class="sm:col-span-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            for="photo">Upload file</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="photo">Upload
+                            file</label>
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            aria-describedby="file_input_help" id="photo" type="file" name="photo">
-                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG (MAX.
-                            1 MB).</p>
+                            aria-describedby="photo" id="photo" type="file" name="photo">
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">
+                            PNG, JPG (MAX.1 MB).
+                        </p>
                     </div>
 
                     <div class="sm:col-span-2">
                         <label for="description"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                         <textarea id="description" rows="8" name="description"
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <div class="flex items-center justify-end space-x-4">

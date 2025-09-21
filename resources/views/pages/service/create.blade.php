@@ -31,21 +31,27 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" " required>
                     </div>
                     <div class="w-full">
-                        <label for="type"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type</label>
-                        <select id="type"
+                        <label for="category_id"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                        <select id="category_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="type">
-                            <option selected value="">Choose a type</option>
-                            <option value="skill">Skill</option>
-                            <option value="product">Product</option>
+                            name="category_id">
+                            <option selected value="">
+                                Choose a type
+                            </option>
+                                   @foreach ($categories as $category)
+                        <option selected value="{{ $category->id }}">
+                            {{ $category->name }}
+                        </option>
+                        @endforeach
                         </select>
                     </div>
                     <div class="w-full">
                         <label for="price"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
                         <input type="number" name="price" id="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required>
                     </div>
 
                     <div class="sm:col-span-2">
@@ -55,7 +61,7 @@
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             aria-describedby="file_input_help" id="photo" type="file" name="photo">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG (MAX.
-                            500 KB).</p>
+                            1 MB).</p>
                     </div>
 
                     <div class="sm:col-span-2">

@@ -44,7 +44,7 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-4 py-3">Title</th>
-                    <th scope="col" class="px-4 py-3">Type</th>
+                    <th scope="col" class="px-4 py-3">Category</th>
                     <th scope="col" class="px-4 py-3">Description</th>
                     <th scope="col" class="px-4 py-3">Price</th>
                     <th scope="col" class="px-4 py-3">
@@ -57,7 +57,7 @@
                 @foreach ($services as $service)
                     <tr class="border-b dark:border-gray-700">
                         <td class="px-4 py-3">{{ $service->title }}</td>
-                        <td class="px-4 py-3">{{ $service->type }}</td>
+                        <td class="px-4 py-3">{{ $service->category->name }}</td>
                         <td class="px-4 py-3">{{ Str::limit($service->description, 20, '...') }}</td>
                         <td class="px-4 py-3">{{ Number::currency($service->price) }}</td>
                         <td class="px-4 py-3 flex items-center justify-end">

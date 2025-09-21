@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Merchant;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class DashboardController extends Controller
             $services = Service::where('merchant_id', $merchant->id)->paginate(5);
             $merchant_status = ucfirst($merchant->status);
             if ($keyword = $request->query('keyword')) {
-                $services = Service::where('merchant_id', $merchant->id)
+                $services = Service::with('category')->where('merchant_id', $merchant->id)
                     ->whereLike('title', "%$keyword%")
                     ->paginate(5);
             }
@@ -29,7 +30,8 @@ class DashboardController extends Controller
                     $query->whereLike('name', "%$keyword%");
                 })->paginate(5);
         }
+        $total_categories = Category::count();
 
-        return view('dashboard', compact('merchants'));
+        return view('dashboard', compact('merchants', 'total_categories'));
     }
 }

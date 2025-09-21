@@ -16,6 +16,15 @@
                     <span class="text-2xl">{{ $merchants->total() }}</span>
                 </div>
             </div>
+            <div class="bg-white w-sm shadow-xs sm:rounded-lg">
+                <div class="p-6 flex flex-col gap-4 items-center justify-center py-[50px] text-gray-900">
+                    <span class="font-bold">
+                        <i class="fa-solid fa-tags mr-1"></i>
+                        Total Categories
+                    </span>
+                    <span class="text-2xl">{{ $total_categories }}</span>
+                </div>
+            </div>
         </div>
     @endrole
 

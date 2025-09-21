@@ -23,9 +23,9 @@ class ServiceStoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'min:3', 'unique:services,title'],
-            'type' => ['required', 'in:skill,product'],
+            'category_id' => ['required', 'exists:categories,id'],
             'price' => ['required', 'numeric', 'min:1'],
-            'photo' => ['required', 'image', 'max:500'],
+            'photo' => ['required', 'image', 'max:1000'],
             'description' => ['required', 'min:10']
         ];
     }

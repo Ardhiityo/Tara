@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ServiceStoreRequest;
 use App\Http\Requests\ServiceUpdateRequest;
+use App\Models\Category;
 
 class ServiceController extends Controller
 {
     public function create()
     {
-        return view('pages.service.create');
+        $categories = Category::get();
+
+        return view('pages.service.create', compact('categories'));
     }
 
     public function store(ServiceStoreRequest $request)
@@ -31,7 +34,9 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
-        return view('pages.service.edit', compact('service'));
+        $categories = Category::get();
+
+        return view('pages.service.edit', compact('service', 'categories'));
     }
 
     public function update(ServiceUpdateRequest $request, Service $service)

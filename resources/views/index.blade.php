@@ -22,11 +22,14 @@
                             class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             Search
                         </button>
+                        <a href="{{ route('main') }}"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </a>
                     </form>
                 </div>
             </div>
             <div class="mb-4 grid gap-6 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
-
                 @foreach ($services as $service)
                     <div
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -42,11 +45,10 @@
                                     <li class="flex items-center gap-2">
                                         <i class="fa-solid fa-tags"></i>
                                         <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
-                                            {{ $service->type }}
+                                            {{ $service->category->name }}
                                         </p>
                                     </li>
                                 </ul>
-
                                 <div class="mt-4 flex items-center justify-between gap-4">
                                     <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                         {{ Number::currency($service->price) }}</p>
@@ -55,7 +57,6 @@
                         </a>
                     </div>
                 @endforeach
-
             </div>
             <div class="w-full text-center">
                 {{ $services->links() }}

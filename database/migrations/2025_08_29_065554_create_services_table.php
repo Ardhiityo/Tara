@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('merchant_id')->constrained()->cascadeOnDelete();
             $table->string('title')->unique();
-            $table->enum('type', ['product', 'skill']);
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->text('description');
             $table->bigInteger('price');
             $table->string('slug');

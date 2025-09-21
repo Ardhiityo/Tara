@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MerchantController;
@@ -36,6 +37,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/biography', [ProfileController::class, 'updateBiography'])->name('profile.biography.update');
     Route::patch('/profile/phone', [ProfileController::class, 'updatePhone'])->name('profile.phone.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/categories/{category:slug}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::patch('/categories/{category:slug}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/categories/{category:slug}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
 
 require __DIR__ . '/auth.php';

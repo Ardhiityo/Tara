@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ServiceUpdateRequest extends FormRequest
+class CategoryUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -12,6 +13,13 @@ class ServiceUpdateRequest extends FormRequest
     public function authorize(): bool
     {
         return true;
+    }
+
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'slug' => Str::slug($this->name),
+        ]);
     }
 
     /**
@@ -22,11 +30,8 @@ class ServiceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3', 'unique:services,title,' . request()->route('service')->id],
-            'category_id' => ['required', 'exists:categories,id'],
-            'price' => ['required', 'numeric', 'min:1'],
-            'photo' => ['nullable', 'image', 'max:500'],
-            'description' => ['required', 'min:10']
+            'name' => ['required', 'min:3', 'max:50'],
+            'slug' => ['required', 'unique:categories,slug,' . $this->route('category')->id]
         ];
     }
 }

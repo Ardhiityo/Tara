@@ -15,6 +15,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Talenta Juara') }}
                     </x-nav-link>
+                    @hasrole('admin')
+                        <x-nav-link :href="route('category.index')" :active="request()->routeIs('category.index')">
+                            {{ __('Categories') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

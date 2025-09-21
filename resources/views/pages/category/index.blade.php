@@ -51,6 +51,7 @@
                 <h3 class="my-3 text-xl">Categories</h3>
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
+                        <th scope="col" class="px-4 py-3">No</th>
                         <th scope="col" class="px-4 py-3">Name</th>
                         <th scope="col" class="px-4 py-3">Slug</th>
                         <th scope="col" class="px-4 py-3">
@@ -61,6 +62,7 @@
                 <tbody>
                     @foreach ($categories as $category)
                         <tr class="border-b dark:border-gray-700">
+                            <td class="px-4 py-3">{{ $loop->index + $categories->firstItem() }}</td>
                             <td class="px-4 py-3">{{ $category->name }}</td>
                             <td class="px-4 py-3">{{ $category->slug }}</td>
                             <td class="px-4 py-3 flex items-center justify-end">

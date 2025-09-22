@@ -20,7 +20,7 @@
 
     <x-navbar />
 
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center bg-gray-100">
         <!-- Page Content -->
         <main class="py-12">
             <div class="max-w-7xl mx-auto flex flex-col gap-[40px] sm:px-6 lg:px-8">
@@ -29,6 +29,15 @@
         </main>
     </div>
 
+    <footer class="bg-black shadow-sm p-4 sticky top-0">
+        <footer class="rounded-lg shadow-sm m-4 bg-gray-800">
+            <div class="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-center">
+                <span class="text-sm sm:text-center text-gray-400">© 2025 <a href="https://flowbite.com/"
+                        class="hover:underline">Posyantek Lebak Denok & Universitas Al-Khairiyah</a>.
+                </span>
+            </div>
+        </footer>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </body>
 

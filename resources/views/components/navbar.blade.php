@@ -69,9 +69,6 @@
                 <button type="button" data-collapse-toggle="ecommerce-navbar-menu-1"
                     aria-controls="ecommerce-navbar-menu-1" aria-expanded="false"
                     class="inline-flex lg:hidden items-center justify-center hover:bg-gray-100 rounded-md dark:hover:bg-gray-700 p-2 text-gray-900 dark:text-white">
-                    <span class="sr-only">
-                        Open Menu
-                    </span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-width="2"

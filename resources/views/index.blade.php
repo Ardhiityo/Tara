@@ -1,7 +1,7 @@
 @props(['services' => []])
 
 <x-main>
-    <section class="bg-gray-50 py-6 antialiased dark:bg-gray-900 md:py-12">
+    <section class="bg-gray-50 py-6 rounded-lg antialiased dark:bg-gray-900 md:py-12">
         <div class="mx-auto max-w-screen-xl px-10 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="items-center justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">

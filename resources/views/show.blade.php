@@ -1,5 +1,5 @@
 <x-main>
-    <section class="p-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+    <section class="p-6 bg-white rounded-lg md:py-16 dark:bg-gray-900 antialiased">
         <div class="mb-14">
             <a href="{{ route('main') }}"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
@@ -7,7 +7,6 @@
             </a>
         </div>
         <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
-
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                 <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
                     <img class="w-full dark:hidden rounded-lg" src="{{ Storage::url($service->photo) }}"
@@ -51,7 +50,6 @@
                     </p>
                 </div>
             </div>
-
         </div>
     </section>
 </x-main>

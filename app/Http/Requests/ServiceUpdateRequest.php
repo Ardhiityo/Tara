@@ -25,7 +25,7 @@ class ServiceUpdateRequest extends FormRequest
             'title' => ['required', 'min:3', 'unique:services,title,' . request()->route('service')->id],
             'category_id' => ['required', 'exists:categories,id'],
             'price' => ['required', 'numeric', 'min:1'],
-            'photo' => ['nullable', 'image', 'max:500'],
+            'photo' => ['nullable', 'image', 'max:1000'],
             'description' => ['required', 'min:10']
         ];
     }

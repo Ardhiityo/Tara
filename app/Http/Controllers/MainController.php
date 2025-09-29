@@ -15,13 +15,22 @@ class MainController extends Controller
 
         if ($keyword || $category) {
             $services = Service::with('category', 'merchant')
-            ->whereHas('merchant', fn ($query) => $query->where('status', 'active'))
-            ->whereHas('category',fn($query) => $query->where('slug', $category))
-            ->whereLike('title', "%$keyword%")
-            ->paginate(5);
+                ->whereHas('merchant', fn($query) => $query->where('status', 'active'))
+                ->when(
+                    $category,
+                    fn($query) => $query->whereHas(
+                        'category',
+                        fn($query) => $query->where('name', 'LIKE', "%$category%")
+                    )
+                )
+                ->when(
+                    $keyword,
+                    fn($query) => $query->where('title', 'LIKE', "%$keyword%")
+                )
+                ->paginate(5);
         } else {
             $services = Service::with('category', 'merchant')
-            ->whereHas('merchant', fn ($query) => $query->where('status', 'active'))->paginate(5);
+                ->whereHas('merchant', fn($query) => $query->where('status', 'active'))->paginate(5);
         }
 
         $categories = Category::get();
